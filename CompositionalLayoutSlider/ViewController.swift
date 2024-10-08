@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         configureDataSource()
     }
     
-    private func configureDataSource() {
+    private func configureLayout() {
         var layoutConfig = SliderLayoutConfig()
         layoutConfig.height = 162.0
         layoutConfig.sectionContentInset = NSDirectionalEdgeInsets(top: 16.0, leading: 16.0, bottom: 0, trailing: 16.0)
@@ -49,6 +49,10 @@ class ViewController: UIViewController {
         layoutConfig.headerName = "HeaderCollectionViewCell"
         layoutConfig.footerName = "FooterCollectionViewCell"
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: layout.createLayout(config: layoutConfig))
+    }
+    
+    private func configureDataSource() {
+        configureLayout()
         collectionView.reloadData()
     }
 }
